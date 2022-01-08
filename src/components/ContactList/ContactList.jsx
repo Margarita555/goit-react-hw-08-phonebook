@@ -7,7 +7,6 @@ import {
   // getLoading,
   // getError,
 } from '../../redux/contacts-selectors';
-import { getIsLoggedIn } from '../../redux/auth/auth.selectors';
 // import Spinner from '../Spinner/Spinner';
 import { nanoid } from 'nanoid';
 import s from './ContactList.module.css';
@@ -15,7 +14,7 @@ import s from './ContactList.module.css';
 const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  const isLoggedIn = useSelector(getIsLoggedIn);
+  // const isLoggedIn = useSelector(getIsLoggedIn);
   // const loading = useSelector(getLoading);
   // const error = useSelector(getError);
   const dispatch = useDispatch();
@@ -23,7 +22,7 @@ const ContactList = () => {
   useEffect(() => {
     dispatch(contactsOperations.fetchContacts());
     // dispatch(contactsOperations.deleteContact());
-  }, [dispatch, isLoggedIn]);
+  }, [dispatch]);
 
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLowerCase();

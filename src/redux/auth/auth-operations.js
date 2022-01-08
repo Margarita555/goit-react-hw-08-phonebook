@@ -26,11 +26,10 @@ const logIn = createAsyncThunk('auth/logIn', async credentials => {
     return user;
   } catch (error) {}
 });
-const logOut = createAsyncThunk('auth/logOut', async credentials => {
+const logOut = createAsyncThunk('auth/logOut', async () => {
   try {
-    const data = await contactsApi.logOut(credentials);
+    await contactsApi.logOut();
     token.unset();
-    return data;
   } catch (error) {}
 });
 // const logOut = createAsyncThunk('auth/logOut', async credentials => {

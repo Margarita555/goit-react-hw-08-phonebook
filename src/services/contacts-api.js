@@ -24,8 +24,8 @@ export async function logIn(credentials) {
   const { data } = await axios.post('/users/login', credentials);
   return data;
 }
-export async function logOut(credentials) {
-  const { data } = await axios.post('/users/logout', credentials);
+export async function logOut() {
+  const { data } = await axios.post('/users/logout');
   return data;
 }
 
