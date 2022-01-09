@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import * as contactsOperations from '../../redux/contacts-operations';
+import * as contactsOperations from '../../redux/contacts/contacts-operations';
 import {
   getContacts,
   getFilter,
   // getLoading,
   // getError,
-} from '../../redux/contacts-selectors';
+} from '../../redux/contacts/contacts-selectors';
 // import Spinner from '../Spinner/Spinner';
 import { nanoid } from 'nanoid';
 import s from './ContactList.module.css';
