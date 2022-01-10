@@ -13,6 +13,8 @@ import HomePage from '../HomePage/HomePage';
 import s from './App.module.css';
 import ContactsView from '../ContactsView/ContactsView';
 import authOperations from '../../redux/auth/auth-operations';
+import PrivateRoute from '../PrivateRoute';
+import PrivateOutlet from '../PrivateRoute';
 
 function App() {
   const dispatch = useDispatch();
@@ -24,7 +26,23 @@ function App() {
       <AppBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/contacts" element={<ContactsView />} />
+
+        {/* <Route path="/contacts" element={<ContactsView />} /> */}
+        {/* <Route path="/" element={<Public />} /> */}
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute>
+              <ContactsView />
+            </PrivateRoute>
+          }
+        />
+        {/* <Route element={<PrivateOutlet />}>
+          <Route path="/contacts" element={<ContactsView />} />
+        </Route> */}
+
+        {/* <Route path="/" element={<Public />} /> */}
+        {/* <Route path="/private" element={<Private />} /> */}
         <Route path="/register" element={<Registration />} />
         <Route path="/login" element={<LoginView />} />
         {/* <Registration /> */}
