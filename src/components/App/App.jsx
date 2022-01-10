@@ -10,11 +10,11 @@ import Registration from '../Registration/Registration';
 import LoginView from '../LoginView/LoginView';
 import AppBar from '../AppBar/AppBar';
 import HomePage from '../HomePage/HomePage';
-import s from './App.module.css';
 import ContactsView from '../ContactsView/ContactsView';
 import authOperations from '../../redux/auth/auth-operations';
 import PrivateRoute from '../PrivateRoute';
-import PrivateOutlet from '../PrivateRoute';
+import PublicRoute from '../PublicRoute';
+import s from './App.module.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,9 +26,6 @@ function App() {
       <AppBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-
-        {/* <Route path="/contacts" element={<ContactsView />} /> */}
-        {/* <Route path="/" element={<Public />} /> */}
         <Route
           path="/contacts"
           element={
@@ -37,21 +34,22 @@ function App() {
             </PrivateRoute>
           }
         />
-        {/* <Route element={<PrivateOutlet />}>
-          <Route path="/contacts" element={<ContactsView />} />
-        </Route> */}
-
-        {/* <Route path="/" element={<Public />} /> */}
-        {/* <Route path="/private" element={<Private />} /> */}
-        <Route path="/register" element={<Registration />} />
-        <Route path="/login" element={<LoginView />} />
-        {/* <Registration /> */}
-        {/* <LoginView /> */}
-        {/* <h1>Phonebook</h1>
-        <ContactForm />
-        <h2>Contacts</h2>
-        <Filter />
-        <ContactList /> */}
+        <Route
+          path="/register"
+          element={
+            <PublicRoute restricted>
+              <Registration />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute restricted>
+              <LoginView />
+            </PublicRoute>
+          }
+        />
 
         {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Routes>

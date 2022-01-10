@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import s from './AuthNav.module.css';
 export default function AuthNav() {
   return (
-    <nav>
+    <div className={s.box}>
       <NavLink
         to="/register"
         end
@@ -16,6 +16,6 @@ export default function AuthNav() {
       >
         Login
       </NavLink>
-    </nav>
+    </div>
   );
 }
