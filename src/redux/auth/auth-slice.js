@@ -31,7 +31,6 @@ const authSlice = createSlice({
       state.isFetchingCurrentUser = true;
     },
     [authOperations.fetchCurrentUser.fulfilled](state, action) {
-      console.log(action.payload);
       state.user = action.payload;
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;

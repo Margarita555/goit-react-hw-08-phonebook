@@ -47,11 +47,9 @@ const fetchCurrentUser = createAsyncThunk(
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
-    console.log(persistedToken);
     token.set(persistedToken);
     try {
       const currentUser = await contactsApi.fetchCurrentUser();
-      console.log(currentUser);
       return currentUser;
     } catch (error) {}
   },

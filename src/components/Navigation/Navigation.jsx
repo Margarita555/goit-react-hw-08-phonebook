@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getIsLoggedIn } from '../../redux/auth/auth-selectors';
 import phonebookIcon from '../../images/phonebook-icon.ico';
 import s from './Navigation.module.css';
 export default function Navigation() {
+  const isLoggedIn = useSelector(getIsLoggedIn);
   return (
     <nav className={s.navBox}>
       <NavLink
@@ -16,12 +19,14 @@ export default function Navigation() {
           width="40"
         />
       </NavLink>
-      <NavLink
-        to="/contacts"
-        className={({ isActive }) => (isActive ? `${s.active}` : '')}
-      >
-        Contacts
-      </NavLink>
+      {isLoggedIn && (
+        <NavLink
+          to="/contacts"
+          className={({ isActive }) => (isActive ? `${s.active}` : '')}
+        >
+          Contacts
+        </NavLink>
+      )}
     </nav>
   );
 }
