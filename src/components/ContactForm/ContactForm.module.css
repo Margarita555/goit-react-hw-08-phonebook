@@ -1,5 +1,6 @@
 .contactForm {
-  padding: 10px;
+  padding: 20px;
   border: 2px solid rgb(11, 159, 196);
   border-radius: 3px;
+  margin-bottom: 30px;
 }

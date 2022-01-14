@@ -12,6 +12,7 @@ import PublicRoute from '../PublicRoute';
 import AppBar from '../AppBar/AppBar';
 // import HomePage from '../HomePage/HomePage';
 // import ContactsView from '../ContactsView/ContactsView';
+// import Spinner from '../Spinner/Spinner';
 import { Spinner } from 'react-bootstrap';
 import s from './App.module.css';
 
@@ -31,37 +32,42 @@ function App() {
       {!isFetchingCurrentUser && (
         <>
           <AppBar />
-          <Suspense fallback={<Spinner />}>
-            <Routes>
-              <Route path="/" element={<AsyncHomePage />} />
-              <Route
-                path="/contacts"
-                element={
-                  <PrivateRoute>
-                    <AsyncContactsView />
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="/register"
-                element={
-                  <PublicRoute restricted>
-                    <AsyncRegistration />
-                  </PublicRoute>
-                }
-              />
-              <Route
-                path="/login"
-                element={
-                  <PublicRoute restricted>
-                    <AsyncLoginView />
-                  </PublicRoute>
-                }
-              />
+          <div className={s.wrapper}>
+            {/* <div className="container"> */}
+            <Suspense fallback={<Spinner />}>
+              <Routes>
+                <Route path="/" element={<AsyncHomePage />} />
 
-              {/* <Route path="*" element={<NotFoundPage />} /> */}
-            </Routes>
-          </Suspense>
+                <Route
+                  path="/contacts"
+                  element={
+                    <PrivateRoute>
+                      <AsyncContactsView />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/register"
+                  element={
+                    <PublicRoute restricted>
+                      <AsyncRegistration />
+                    </PublicRoute>
+                  }
+                />
+                <Route
+                  path="/login"
+                  element={
+                    <PublicRoute restricted>
+                      <AsyncLoginView />
+                    </PublicRoute>
+                  }
+                />
+
+                {/* <Route path="*" element={<NotFoundPage />} /> */}
+              </Routes>
+            </Suspense>
+            {/* </div> */}
+          </div>
         </>
       )}
     </div>

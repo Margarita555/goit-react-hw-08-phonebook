@@ -33,7 +33,7 @@ export default function ContactForm() {
 
   return (
     <form className={s.contactForm} onSubmit={handleSubmit}>
-      <label className={s.label}>
+      <label>
         Name
         <input
           className={s.input}
@@ -47,10 +47,9 @@ export default function ContactForm() {
         />
       </label>
 
-      <label className={s.label}>
+      <label>
         Number
         <input
-          className={s.input}
           type="tel"
           name="number"
           value={number}
@@ -60,9 +59,7 @@ export default function ContactForm() {
           required
         />
       </label>
-      <button className={s.btn} type="submit">
-        Add contact
-      </button>
+      <button type="submit">Add contact</button>
     </form>
   );
 }

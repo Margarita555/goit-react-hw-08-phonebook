@@ -41,14 +41,10 @@ export default function Registration() {
     setPassword('');
   };
   return (
-    <div>
-      <h2>Registration</h2>
-      <form
-        className={s.registrationForm}
-        onSubmit={handleSubmit}
-        autoComplete="off"
-      >
-        <label style={s.label}>
+    <div className="container">
+      <h2 className="title">Registration</h2>
+      <form className="form" onSubmit={handleSubmit} autoComplete="off">
+        <label style={s.registrationLabel}>
           Name
           <input type="text" name="name" value={name} onChange={handleChange} />
         </label>

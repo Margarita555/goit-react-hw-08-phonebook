@@ -1,12 +1,13 @@
 import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
+import s from './ContactsView.module.css';
 
 function ContactsView() {
   return (
-    <div>
+    <div className={s.contactsContainer}>
       <ContactForm />
-      <h2>Contacts</h2>
+      <h2 className="title">Contacts</h2>
       <Filter />
       <ContactList />
     </div>

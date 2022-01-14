@@ -6,17 +6,17 @@ import s from './Navigation.module.css';
 export default function Navigation() {
   const isLoggedIn = useSelector(getIsLoggedIn);
   return (
-    <nav className={s.navBox}>
+    <nav className="navBox">
       <NavLink
         to="/"
         end
-        className={({ isActive }) => (isActive ? `${s.active}` : '')}
+        className={({ isActive }) => (isActive ? 'active' : '')}
       >
         <img
           className={s.image}
           src={phonebookIcon}
           alt="phonebook"
-          width="50"
+          width="60"
         />
       </NavLink>
       {isLoggedIn && (

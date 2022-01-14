@@ -1,0 +1,10 @@
+.contactsContainer {
+  position: relative;
+  background-color: #ffffff;
+  margin: 0 auto;
+  width: 900px;
+  height: 100%;
+  padding: 50px 40px;
+  box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.1),
+    -12px 0 8px -4px rgba(0, 0, 0, 0.1);
+}

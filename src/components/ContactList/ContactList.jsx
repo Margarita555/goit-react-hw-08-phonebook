@@ -4,10 +4,11 @@ import * as contactsOperations from '../../redux/contacts/contacts-operations';
 import {
   getContacts,
   getFilter,
-  // getLoading,
-  // getError,
+  getLoading,
+  getError,
 } from '../../redux/contacts/contacts-selectors';
 // import Spinner from '../Spinner/Spinner';
+import { Spinner } from 'react-bootstrap';
 import { nanoid } from 'nanoid';
 import s from './ContactList.module.css';
 
@@ -15,13 +16,14 @@ const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
   // const isLoggedIn = useSelector(getIsLoggedIn);
-  // const loading = useSelector(getLoading);
+  const loading = useSelector(getLoading);
+  console.log(Spinner);
+  console.log(loading);
   // const error = useSelector(getError);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(contactsOperations.fetchContacts());
-    // dispatch(contactsOperations.deleteContact());
   }, [dispatch]);
 
   const getVisibleContacts = () => {
@@ -34,7 +36,7 @@ const ContactList = () => {
   const visibleContacts = getVisibleContacts();
   return (
     <>
-      {/* {loading && <Spinner />} */}
+      {loading && <Spinner />}
       {/* {error && <h2>Oops, something went wrong. Try again later</h2>} */}
       {contacts.length > 0 && (
         <ul>

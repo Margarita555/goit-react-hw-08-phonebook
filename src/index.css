@@ -24,17 +24,26 @@ h3 {
 
 a {
   text-decoration: none;
+  color: rgb(11, 159, 196);
+  letter-spacing: 0.6px;
+  font-size: 22px;
+  font-weight: 500;
+  height: 100%;
+  line-height: 80px;
+  vertical-align: middle;
+
+  padding: 0 15px;
 }
 
 input {
   display: block;
-  width: 300px;
-  padding: 6px;
-  margin-top: 3px;
+  width: 450px;
+  padding: 10px;
+  margin-top: 6px;
   margin-bottom: 20px;
   border-radius: 3px;
-  border: 2px solid rgb(11, 159, 196);
-  font-size: 16px;
+  border: 2px solid rgb(9, 139, 172);
+  font-size: 20px;
 }
 
 input:focus {
@@ -49,11 +58,11 @@ label {
 }
 
 button {
-  padding: 5px 15px;
+  padding: 10px 20px;
   background-color: #ffffff;
   border: 2px solid rgb(11, 159, 196);
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 20px;
   color: rgb(11, 159, 196);
   font-weight: 500;
   cursor: pointer;
@@ -61,6 +70,46 @@ button {
 
 button:hover,
 button:focus {
-  background-color: rgb(79, 186, 235);
+  background-color: #aee0e0;
   color: rgb(10, 90, 128);
+}
+
+.container {
+  position: relative;
+  background-color: #ffffff;
+  margin: 0 auto;
+  width: 650px;
+  height: 100%;
+  padding: 35px 30px;
+  box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.1),
+    -12px 0 8px -4px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  padding-top: 30px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.title {
+  text-align: center;
+  font-size: 40px;
+  color: rgb(17, 137, 167);
+}
+
+.navBox {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.active {
+  font-size: 23px;
+  color: rgb(11, 159, 196);
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+    1px 1px 1px rgba(0, 0, 0, 0.5), 2px 2px 2px rgba(206, 89, 55, 0);
+  background-color: #bbe5e9;
+  box-shadow: rgb(228, 243, 247) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
