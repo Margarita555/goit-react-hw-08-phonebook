@@ -1,0 +1,23 @@
+.title {
+  font-family: 'Mochiy Pop P One', sans-serif;
+  font-size: 100px;
+  color: rgb(17, 137, 167);
+}
+
+.titleBox {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(170deg, transparent 80%, #91cbcf 30%),
+    linear-gradient(156deg, transparent 68%, #ece9e3 30%),
+    linear-gradient(135deg, transparent 60%, #91cbcf 30%),
+    linear-gradient(115deg, transparent 55%, #ece9e3 30%),
+    linear-gradient(65deg, transparent 45%, #91cbcf 30%),
+    linear-gradient(45deg, transparent 40%, #ece9e3 30%),
+    linear-gradient(24deg, transparent 32%, #91cbcf 30%),
+    linear-gradient(10deg, transparent 20%, #ece9e3 20%),
+    linear-gradient(0deg, transparent 0%, #91cbcf 0%);
+  background-position: center;
+  background-size: 100% 100%;
+}

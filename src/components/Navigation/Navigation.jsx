@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../../redux/auth/auth-selectors';
-import phonebookIcon from '../../images/phonebook-icon.ico';
+import phonebookIcon from '../../images/b.svg';
 import s from './Navigation.module.css';
 export default function Navigation() {
   const isLoggedIn = useSelector(getIsLoggedIn);
@@ -16,7 +16,7 @@ export default function Navigation() {
           className={s.image}
           src={phonebookIcon}
           alt="phonebook"
-          width="40"
+          width="50"
         />
       </NavLink>
       {isLoggedIn && (
