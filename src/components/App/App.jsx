@@ -12,9 +12,10 @@ import PublicRoute from '../PublicRoute';
 import AppBar from '../AppBar/AppBar';
 // import HomePage from '../HomePage/HomePage';
 // import ContactsView from '../ContactsView/ContactsView';
-// import Spinner from '../Spinner/Spinner';
-import { Spinner } from 'react-bootstrap';
+import Spinner from '../Spinner/Spinner';
+// import { Spinner } from 'react-bootstrap';
 import s from './App.module.css';
+
 
 const AsyncHomePage = lazy(() => import('../HomePage/HomePage'));
 const AsyncRegistration = lazy(() => import('../Registration/Registration'));

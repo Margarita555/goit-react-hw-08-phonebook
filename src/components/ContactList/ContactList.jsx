@@ -7,19 +7,15 @@ import {
   getLoading,
   getError,
 } from '../../redux/contacts/contacts-selectors';
-// import Spinner from '../Spinner/Spinner';
-import { Spinner } from 'react-bootstrap';
+import Spinner from '../Spinner/Spinner';
 import { nanoid } from 'nanoid';
 import s from './ContactList.module.css';
 
 const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  // const isLoggedIn = useSelector(getIsLoggedIn);
   const loading = useSelector(getLoading);
-  console.log(Spinner);
-  console.log(loading);
-  // const error = useSelector(getError);
+  const error = useSelector(getError);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,9 +31,9 @@ const ContactList = () => {
 
   const visibleContacts = getVisibleContacts();
   return (
-    <>
+    <div className={s.contactListWrapper}>
       {loading && <Spinner />}
-      {/* {error && <h2>Oops, something went wrong. Try again later</h2>} */}
+      {error && <h2>Oops, something went wrong. Try again later</h2>}
       {contacts.length > 0 && (
         <ul>
           {visibleContacts.map(({ number, name, id }) => (
@@ -55,7 +51,7 @@ const ContactList = () => {
           ))}
         </ul>
       )}
-    </>
+    </div>
   );
 };
 
