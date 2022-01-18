@@ -41,6 +41,7 @@ export default function LoginView() {
             name="password"
             value={password}
             onChange={handleChange}
+            autocomplete="on"
           />
         </label>
 
