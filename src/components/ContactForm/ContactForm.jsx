@@ -63,28 +63,3 @@ export default function ContactForm() {
     </form>
   );
 }
-
-// import { connect } from 'react-redux';
-// function ContactForm({ contacts, onSubmit }) {
-
-//   const handleSubmit = e => {
-//     e.preventDefault();
-//     const isDuplicateContact = contacts.find(contact => contact.name === name);
-//     if (isDuplicateContact) {
-//       alert(`${name} is already in contacts`);
-//       return;
-//     }
-//     onSubmit(name, number);
-//     resetState();
-//   };
-
-// const mapStateToProps = state => ({
-//   contacts: state.contacts.items,
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   onSubmit: (name, number) =>
-//     dispatch(contactsActions.addContact(name, number)),
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

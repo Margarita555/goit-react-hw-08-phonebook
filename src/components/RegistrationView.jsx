@@ -1,29 +1,47 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import authOperations from '../../redux/auth/auth-operations';
+import authOperations from '../redux/auth/auth-operations';
 
-export default function LoginView() {
+export default function Registration() {
   const dispatch = useDispatch();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
-    name === 'email' ? setEmail(value) : setPassword(value);
+    switch (name) {
+      case 'name':
+        return setName(value);
+      case 'email':
+        return setEmail(value);
+      case 'password':
+        return setPassword(value);
+      default:
+        return;
+    }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(authOperations.logIn({ email, password }));
+    dispatch(authOperations.register({ name, email, password }));
+    resetState();
+  };
+
+  const resetState = () => {
+    setName('');
     setEmail('');
     setPassword('');
   };
-
   return (
     <div className="container">
-      <h1 className="title">Login</h1>
+      <h2 className="title">Registration</h2>
+      <form className="form" onSubmit={handleSubmit} autoComplete="off">
+        <label>
+          Name
+          <input type="text" name="name" value={name} onChange={handleChange} />
+        </label>
 
-      <form onSubmit={handleSubmit} className="form" autoComplete="off">
         <label>
           Email
           <input
@@ -33,7 +51,6 @@ export default function LoginView() {
             onChange={handleChange}
           />
         </label>
-
         <label>
           Password
           <input
@@ -44,7 +61,7 @@ export default function LoginView() {
           />
         </label>
 
-        <button type="submit">Enter</button>
+        <button type="submit">Register</button>
       </form>
     </div>
   );

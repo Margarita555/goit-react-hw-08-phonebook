@@ -7,19 +7,14 @@ import { getCurrentUser } from '../../redux/auth/auth-selectors';
 import authOperations from '../../redux/auth/auth-operations';
 import PrivateRoute from '../PrivateRoute';
 import PublicRoute from '../PublicRoute';
-// import Registration from '../Registration/Registration';
-// import LoginView from '../LoginView/LoginView';
 import AppBar from '../AppBar/AppBar';
-// import HomePage from '../HomePage/HomePage';
-// import ContactsView from '../ContactsView/ContactsView';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Spinner from '../Spinner/Spinner';
-// import { Spinner } from 'react-bootstrap';
 import s from './App.module.css';
 
-
 const AsyncHomePage = lazy(() => import('../HomePage/HomePage'));
-const AsyncRegistration = lazy(() => import('../Registration/Registration'));
-const AsyncLoginView = lazy(() => import('../LoginView/LoginView'));
+const AsyncRegistration = lazy(() => import('../RegistrationView'));
+const AsyncLoginView = lazy(() => import('../LoginView'));
 const AsyncContactsView = lazy(() => import('../ContactsView/ContactsView'));
 
 function App() {
@@ -34,7 +29,6 @@ function App() {
         <>
           <AppBar />
           <div className={s.wrapper}>
-            {/* <div className="container"> */}
             <Suspense fallback={<Spinner />}>
               <Routes>
                 <Route path="/" element={<AsyncHomePage />} />
@@ -63,11 +57,9 @@ function App() {
                     </PublicRoute>
                   }
                 />
-
-                {/* <Route path="*" element={<NotFoundPage />} /> */}
+                <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </Suspense>
-            {/* </div> */}
           </div>
         </>
       )}

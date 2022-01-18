@@ -58,10 +58,10 @@ label {
 }
 
 button {
-  padding: 10px 20px;
+  padding: 10px 30px;
   background-color: #ffffff;
   border: 2px solid rgb(11, 159, 196);
-  border-radius: 8px;
+  border-radius: 25px;
   font-size: 20px;
   color: rgb(11, 159, 196);
   font-weight: 500;
@@ -70,7 +70,7 @@ button {
 
 button:hover,
 button:focus {
-  background-color: #aee0e0;
+  background-color: #d5f3f4;
   color: rgb(10, 90, 128);
 }
 
