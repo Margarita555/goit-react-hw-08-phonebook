@@ -3,7 +3,7 @@ import * as contactsApi from '../../services/contacts-api.js';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
-  async (_, { rejectWithValue }) => {
+  async (_state, { rejectWithValue }) => {
     try {
       const contacts = await contactsApi.fetchContacts();
       return contacts;

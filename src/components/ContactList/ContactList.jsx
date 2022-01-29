@@ -3,17 +3,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as contactsOperations from '../../redux/contacts/contacts-operations';
 import {
   getContacts,
-  getFilter,
   getLoading,
   getError,
+  getVisibleContacts,
 } from '../../redux/contacts/contacts-selectors';
 import Spinner from '../Spinner/Spinner';
-import { nanoid } from 'nanoid';
 import s from './ContactList.module.css';
 
 const ContactList = () => {
   const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const visibleContacts = useSelector(getVisibleContacts);
   const loading = useSelector(getLoading);
   const error = useSelector(getError);
   const dispatch = useDispatch();
@@ -22,14 +21,6 @@ const ContactList = () => {
     dispatch(contactsOperations.fetchContacts());
   }, [dispatch]);
 
-  const getVisibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter),
-    );
-  };
-
-  const visibleContacts = getVisibleContacts();
   return (
     <div className={s.contactListWrapper}>
       {loading && <Spinner />}
@@ -37,7 +28,7 @@ const ContactList = () => {
       {contacts.length > 0 && (
         <ul>
           {visibleContacts.map(({ number, name, id }) => (
-            <li key={nanoid()} className={s.item}>
+            <li key={id} className={s.item}>
               <span className={s.name}>{name}</span>:
               <span className={s.number}>{number}</span>
               <button

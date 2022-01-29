@@ -10,8 +10,7 @@ export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const handleChange = e => {
-    const { name, value } = e.currentTarget;
+  const handleChange = ({ currentTarget: { name, value } }) => {
     name === 'name' ? setName(value) : setNumber(value);
   };
 
